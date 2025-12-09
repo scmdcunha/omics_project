@@ -11,6 +11,7 @@
 Colunas a manter:
 
 - Protein names
+- Protein ID
 - Gene names
 - LFQ intensity T**
 
