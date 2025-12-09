@@ -8,9 +8,7 @@ https://www.ebi.ac.uk/pride/archive/projects/PXD012998
 
 ### Para obter o ficheiro:
 
-```bash
 https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/Sample_information.xlsx
-```
 
 ### Amostras:
 
