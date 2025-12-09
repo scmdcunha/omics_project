@@ -1,6 +1,10 @@
 # OMICS PROJECT
 
-## Samples Information
+## Database em:
+
+https://www.ebi.ac.uk/pride/archive/projects/PXD012998
+
+## Samples_Information.xlsx
 
 ### Para obter o ficheiro:
 
@@ -14,7 +18,7 @@ https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/Sample_informat
 - HGSC: t5 - t14
 - EC: t15 - t24
 
-## maxquant_OrbitrapElite_genes.csv
+## maxquant_OrbitrapElite_genes.txt
 
 ### Para obter o ficheiro:
 
