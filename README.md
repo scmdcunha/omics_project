@@ -19,4 +19,4 @@ Linhas a eliminar:
 
 https://github.com/scmdcunha/omics_project/issues/1#issue-3686795596
 
-(Múltiplas identificações (em Gene Names) exceto isoformas (separadas por hífen); "CON_" E "REV__" (em Protein names))
+(Múltiplas identificações (em Gene Names) exceto isoformas (separadas por hífen); "CON_" E "REV__" (em Protein IDs))
