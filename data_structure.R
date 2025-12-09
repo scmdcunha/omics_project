@@ -46,43 +46,38 @@ print(grep("LFQ.intensity", colnames(mq_orbitrap), value = TRUE))
 
 ### --- Data Cleaning and Gene Extraction --- ###
 
-clean_and_extract_genes <- function(df) {
-  
-  # If columns exist, filter properly
-  filter_cols <- c("Reverse", "Potential.contaminant", "Only.identified.by.site")
-  have_cols <- filter_cols %in% colnames(df)
-  
-  if (all(have_cols)) {
-    df_clean <- df[
-      df$Reverse != "+" &
-        df$Potential.contaminant != "+" &
-        df$Only.identified.by.site != "+",
-    ]
-  } else {
-    warning("Filter columns missing — using unfiltered data.")
-    df_clean <- df
-  }
-  
-  # Extract gene names
-  if (!"Gene.names" %in% colnames(df_clean)) {
-    stop("Column 'Gene.names' not found in the data.")
-  }
-  
-  # separate genes like "TP53;MDM2"
-  genes <- unique(na.omit(unlist(strsplit(df_clean$Gene.names, ";"))))
-  
-  return(genes)
+# 1. Keep only essential columns
+lfq_cols_qex <- grep("^LFQ.intensity", colnames(mq_qexactive), value = TRUE)
+mq_qex_small <- mq_qexactive[, c("Protein.IDs", "Protein.names", "Gene.names", lfq_cols_qex)]
+
+lfq_cols_orb <- grep("^LFQ.intensity", colnames(mq_orbitrap), value = TRUE)
+mq_orbitrap_small <- mq_orbitrap[, c("Protein.IDs", "Protein.names", "Gene.names", lfq_cols_orb)]
+
+# 2. Remove rows with multiple proteins (Protein.IDs contains ";"), but keep isoforms
+remove_multi_proteins <- function(df) {
+  df <- df[!grepl("^REV__", df$Protein.IDs), ]
+  df <- df[!grepl("^CON__", df$Protein.IDs), ]
+  df <- df[!grepl(";", df$Protein.IDs), ]  # eliminate multi-identifications
+  return(df)
 }
 
+mq_qex_small <- remove_multi_proteins(mq_qex_small)
+mq_orbitrap_small <- remove_multi_proteins(mq_orbitrap_small)
 
-# Apply to both datasets
-genes_qexactive <- clean_and_extract_genes(mq_qexactive)
-genes_orbitrap  <- clean_and_extract_genes(mq_orbitrap)
+# 3. Remove rows with multiple gene names
+mq_qex_small <- mq_qex_small[!grepl(";", mq_qex_small$Gene.names), ]
+mq_orbitrap_small <- mq_orbitrap_small[!grepl(";", mq_orbitrap_small$Gene.names), ]
 
-# Combine gene lists from both instruments
-genes_combined <- sort(unique(c(genes_qexactive, genes_orbitrap)))
+# 4. Remove rows with no LFQ signal
+# mq_qex_small <- mq_qex_small[rowSums(mq_qex_small[, lfq_cols_qex] > 0, na.rm = TRUE) > 0, ]
+# mq_orbitrap_small <- mq_orbitrap_small[rowSums(mq_orbitrap_small[, lfq_cols_orb] > 0, na.rm = TRUE) > 0, ]
 
-# Export lists for GO analysis
+# 5. Extract gene lists
+genes_qexactive <- sort(unique(mq_qex_small$Gene.names))
+genes_orbitrap  <- sort(unique(mq_orbitrap_small$Gene.names))
+genes_combined  <- sort(unique(c(genes_qexactive, genes_orbitrap)))
+
+# 6. Export
 write.table(genes_qexactive, "gene_list_QExactive.txt",
             quote = FALSE, row.names = FALSE, col.names = FALSE)
 write.table(genes_orbitrap, "gene_list_Orbitrap.txt",
@@ -90,8 +85,7 @@ write.table(genes_orbitrap, "gene_list_Orbitrap.txt",
 write.table(genes_combined, "gene_list_combined.txt",
             quote = FALSE, row.names = FALSE, col.names = FALSE)
 
-cat("\nExported gene lists for GO analysis:\n")
-cat(" - gene_list_QExactive.txt (", length(genes_qexactive), "genes)\n")
-cat(" - gene_list_Orbitrap.txt (", length(genes_orbitrap), "genes)\n")
-cat(" - gene_list_combined.txt (", length(genes_combined), "genes)\n")
-
+cat("\nExported cleaned gene lists:\n")
+cat(" - QExactive:", length(genes_qexactive), "genes\n")
+cat(" - Orbitrap:", length(genes_orbitrap), "genes\n")
+cat(" - Combined:", length(genes_combined), "genes\n")
