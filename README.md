@@ -12,9 +12,9 @@ https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/Sample_informat
 
 ### Amostras:
 
-- Fallopian Tissue: t1 - t4
-- HGSC: t5 - t14
-- EC: t15 - t24
+- Fallopian Tissue: t1 - t4 (4 amostras)
+- HGSC: t5 - t14 (10 amostras)
+- EC: t15 - t24 (10 amostras)
 
 ## maxquant_OrbitrapElite_genes.txt
 
