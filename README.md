@@ -2,9 +2,9 @@
 
 ## Samples Information
 
-Fallopian Tissue: t1 - t4
-HGSC: t5 - t14
-EC: t15 - t24
+- Fallopian Tissue: t1 - t4
+- HGSC: t5 - t14
+- EC: t15 - t24
 
 ## maxquant_OrbitrapElite_genes.csv
 
