@@ -1,6 +1,6 @@
-# omics_project
+# OMICS PROJECT
 
-##Samples Information
+## Samples Information
 
 Fallopian Tissue: t1 - t4
 HGSC: t5 - t14
