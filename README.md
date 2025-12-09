@@ -33,7 +33,7 @@ wget https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/MaxQuant_p
 - Protein names
 - Protein ID
 - Gene names
-- LFQ intensity T**
+- LFQ intensity T** (Em amostras duplicadas manter a reprocessada)
 
 ### Linhas a eliminar:
 
