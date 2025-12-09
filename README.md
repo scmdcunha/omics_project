@@ -16,12 +16,16 @@ https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/Sample_informat
 - HGSC: t5 - t14 (10 amostras)
 - EC: t15 - t24 (10 amostras)
 
-## maxquant_OrbitrapElite_genes.txt
+## maxquant_OrbitrapElite_genes.txt e MaxQuant de QExactivePlusData.txt
 
-### Para obter o ficheiro:
-
+### Download do MaxQuant_proteinGroups_OrbitrapEliteData.txt:
 ```bash
 wget https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/MaxQuant_proteinGroups_OrbitrapEliteData.txt
+```
+
+### Download do MaxQuant_proteinGroups_QExactivePlusData.txt:
+```bash
+wget https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/MaxQuant_proteinGroups_QExactivePlusData.txt
 ```
 
 ### Colunas a manter:
