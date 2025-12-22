@@ -5,7 +5,7 @@ Este repositório contém a reanálise dos dados proteómicos do projeto PXD0129
 ## 1. Fonte de Dados
 Os dados originais foram obtidos do repositório PRIDE:
 * **Projeto:** [PXD012998](https://www.ebi.ac.uk/pride/archive/projects/PXD012998)
-* **Artigo de Referência:** Dieters-Castator et al. (2019).
+* **Artigo de Referência:** [Dieters-Castator et al. (2019)](https://aacrjournals.org/clincancerres/article/25/14/4309/81813/Proteomics-Derived-Biomarker-Panel-Improves).
 
 ### Amostras Utilizadas:
 - **Fallopian Tissue (Controlo):** t1 a t4 (4 amostras)
@@ -46,7 +46,7 @@ A limpeza dos dados seguiu critérios rigorosos para garantir a qualidade das co
 
 ### Ficheiros e Resultados:
 
-* `Sample_information.xlsx`: Metadados e anotação das amostras.
+* `Sample_information.xlsx`: Metadados e anotação das amostras (dos autores do artigo).
 * `Treatment.zip`: Dados processados da plataforma Orbitrap Elite.
 * `Normalization_2.zip`: Resultados da normalização e gráficos exploratórios (Boxplots e Volcano Plots).
 * `GO_Analysis.zip`: Resultados das análises funcionais e dotplots de enriquecimento.
