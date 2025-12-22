@@ -14,8 +14,11 @@ Os dados originais foram obtidos do repositório PRIDE:
 
 ## 2. Aquisição de Dados (Orbitrap Elite)
 Embora o projeto original contenha dados de duas plataformas, esta reanálise foca-se exclusivamente nos dados obtidos pelo espectrómetro Orbitrap Elite.
+
+Para obter o ficheiro:
+
 ```bash
-wget [https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/MaxQuant_proteinGroups_OrbitrapEliteData.txt](https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/MaxQuant_proteinGroups_OrbitrapEliteData.txt)
+wget https://ftp.pride.ebi.ac.uk/pride/data/archive/2019/03/PXD012998/MaxQuant_proteinGroups_OrbitrapEliteData.txt
 
 ```
 
